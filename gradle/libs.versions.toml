@@ -20,6 +20,8 @@ koin = "3.5.0"
 kotlinx-binary-validator = "0.13.2"
 dokka = "1.9.10"
 koinCompose = "1.1.0"
+revenueCatAndroid="7.5.2"
+
 
 
 [libraries]
@@ -45,6 +47,9 @@ koin-core = { group = "io.insert-koin", name = "koin-core", version.ref = "koin"
 koin-android = { group = "io.insert-koin", name = "koin-android", version.ref = "koin" }
 koin-compose = { group = "io.insert-koin", name = "koin-compose", version.ref = "koinCompose" }
 
+# Revenuecat - Subscription lib
+revenuecat-purchases = { group = "com.revenuecat.purchases", name = "purchases", version.ref = "revenueCatAndroid" }
+revenuecat-purchases-ui = { group = "com.revenuecat.purchases", name = "purchases-ui", version.ref = "revenueCatAndroid" }
 
 [plugins]
 jetbrainsCompose = { id = "org.jetbrains.compose", version.ref = "compose-plugin" }

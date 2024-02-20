@@ -27,7 +27,7 @@ public object LibDependencyInitializer {
             includes(modules)
         }
         koinApp = koinApplication {
-            modules(configModule + com.mmk.kmprevenuecat.purchases.di.platformModule)
+            modules(configModule + platformModule)
         }.also {
             it.koin.onLibraryInitialized()
         }

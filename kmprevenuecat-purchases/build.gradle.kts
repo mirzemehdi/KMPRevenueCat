@@ -38,6 +38,9 @@ kotlin {
             implementation(libs.androidx.startup.runtime)
             implementation(libs.androidx.core.ktx)
             implementation(libs.androidx.activity.ktx)
+
+            implementation(libs.revenuecat.purchases)
+            implementation(libs.revenuecat.purchases.ui)
         }
         commonMain.dependencies {
             implementation(libs.koin.core)
