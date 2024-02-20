@@ -27,7 +27,12 @@ kotlin {
             baseName = "KMPRevenueCatPurchases"
             isStatic = true
         }
-        noPodspec()
+        pod("RevenueCat"){
+            extraOpts += listOf("-compiler-option", "-fmodules")
+        }
+        pod("RevenueCatUI"){
+            extraOpts += listOf("-compiler-option", "-fmodules")
+        }
     }
 
 
