@@ -9,5 +9,7 @@ object AppInitializer {
         onApplicationStartPlatformSpecific()
         Purchases.logLevel = LogLevel.DEBUG
         Purchases.configure("goog_EgunaTyXgbBGvtLUxYdVwddiGRC")
+//        Purchases.configure("appl_eGNPjbifNVdVHWPXlrkmZkUnUbm")
+
     }
 }

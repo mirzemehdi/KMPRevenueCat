@@ -11,6 +11,8 @@
 		058557D9273AAEEB004C7B11 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */; };
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
 		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
+		A6DB222D2B857D710086C4D3 /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = A6DB222C2B857D710086C4D3 /* RevenueCat */; };
+		A6DB222F2B857D710086C4D3 /* RevenueCatUI in Frameworks */ = {isa = PBXBuildFile; productRef = A6DB222E2B857D710086C4D3 /* RevenueCatUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -30,10 +32,10 @@
 		058557BA273AAA24004C7B11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2152FB032600AC8F00CF470E /* iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSApp.swift; sourceTree = "<group>"; };
-		7555FF7B242A565900829871 /* iosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = iosApp.app; path = "/Users/mirzemehdi/AndroidStudioProjects/KMM/KMPRevenueCat/sampleApp/iosApp/build/Debug-iphoneos/iosApp.app"; sourceTree = "<absolute>"; };
 		7555FF82242A565900829871 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A679C57A2B02E91A008F0522 /* iosApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iosApp.entitlements; sourceTree = "<group>"; };
+		A6DB222A2B857CFF0086C4D3 /* iosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +43,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6DB222F2B857D710086C4D3 /* RevenueCatUI in Frameworks */,
+				A6DB222D2B857D710086C4D3 /* RevenueCat in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,6 +64,7 @@
 			children = (
 				7555FF7D242A565900829871 /* iosApp */,
 				7555FFB0242A642200829871 /* Frameworks */,
+				A6DB222A2B857CFF0086C4D3 /* iosApp.app */,
 			);
 			sourceTree = "<group>";
 		};
@@ -102,9 +107,11 @@
 			);
 			name = iosApp;
 			packageProductDependencies = (
+				A6DB222C2B857D710086C4D3 /* RevenueCat */,
+				A6DB222E2B857D710086C4D3 /* RevenueCatUI */,
 			);
 			productName = iosApp;
-			productReference = 7555FF7B242A565900829871 /* iosApp.app */;
+			productReference = A6DB222A2B857CFF0086C4D3 /* iosApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -134,6 +141,7 @@
 			packageReferences = (
 				A61AEE962B3D018A00E17BA4 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 				A62229A52B479D28001B39BD /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				A6DB222B2B857D710086C4D3 /* XCRemoteSwiftPackageReference "purchases-ios" */,
 			);
 			productRefGroup = 7555FF72242A565900829871;
 			projectDirPath = "";
@@ -411,7 +419,28 @@
 				minimumVersion = 10.19.1;
 			};
 		};
+		A6DB222B2B857D710086C4D3 /* XCRemoteSwiftPackageReference "purchases-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RevenueCat/purchases-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.36.3;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A6DB222C2B857D710086C4D3 /* RevenueCat */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A6DB222B2B857D710086C4D3 /* XCRemoteSwiftPackageReference "purchases-ios" */;
+			productName = RevenueCat;
+		};
+		A6DB222E2B857D710086C4D3 /* RevenueCatUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A6DB222B2B857D710086C4D3 /* XCRemoteSwiftPackageReference "purchases-ios" */;
+			productName = RevenueCatUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7555FF73242A565900829871 /* Project object */;
 }
