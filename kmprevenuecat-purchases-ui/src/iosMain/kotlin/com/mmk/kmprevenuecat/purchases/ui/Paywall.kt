@@ -17,6 +17,8 @@ public actual fun Paywall(
     val controller = RCPaywallViewController(null, shouldDisplayDismissButton)
     controller.setDelegate(listener?.asRCPaywallViewControllerDelegate(onDismiss))
     if (controller.isBeingPresented().not())
-        rootViewController?.presentViewController(controller, true, null)
+        rootViewController?.presentViewController(controller, true, completion = {
+            if (controller.isBeingPresented().not()) onDismiss()
+        })
 
 }
