@@ -6,7 +6,13 @@ import com.mmk.kmprevenuecat.purchases.data.LogInResult
 import com.revenuecat.purchases.CustomerInfo as RevenueCatCustomerInfo
 import com.revenuecat.purchases.PurchasesConfiguration
 import com.revenuecat.purchases.PurchasesError
+import com.revenuecat.purchases.PurchasesException
+import com.revenuecat.purchases.awaitCustomerInfo
+import com.revenuecat.purchases.getCustomerInfoWith
 import com.revenuecat.purchases.interfaces.ReceiveCustomerInfoCallback
+import kotlin.coroutines.resume
+import kotlin.coroutines.resumeWithException
+import kotlin.coroutines.suspendCoroutine
 import com.revenuecat.purchases.Purchases as RevenueCatPurchases
 import com.revenuecat.purchases.interfaces.LogInCallback as RevenueCatLoginCallback
 
@@ -47,4 +53,23 @@ internal class PurchasesImpl(private val context: Context) : Purchases {
 
         })
     }
+
+    @OptIn(KMPRevenueCatInternalApi::class)
+    override fun getCustomerInfo(
+        fetchPolicy: CacheFetchPolicy,
+        onResult: (Result<CustomerInfo>) -> Unit
+    ) {
+        RevenueCatPurchases.sharedInstance.getCustomerInfo(fetchPolicy = fetchPolicy.asRevenueCatCacheFetchPolicy(),
+            object : ReceiveCustomerInfoCallback {
+                override fun onError(error: PurchasesError) {
+                    onResult(Result.failure(Exception(error.message)))
+                }
+
+                override fun onReceived(customerInfo: RevenueCatCustomerInfo) {
+                    onResult(Result.success(customerInfo.asCustomerInfo()))
+                }
+
+            })
+    }
+
 }

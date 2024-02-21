@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
     spec.name                     = 'kmprevenuecat_purchases'
-    spec.version                  = '0.0.3'
+    spec.version                  = '0.0.5'
     spec.homepage                 = ''
     spec.source                   = { :http=> ''}
     spec.authors                  = ''

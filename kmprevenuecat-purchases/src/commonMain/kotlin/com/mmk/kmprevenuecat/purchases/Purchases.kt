@@ -17,6 +17,11 @@ public interface Purchases {
     public fun logOut(onResult: (Result<CustomerInfo>) -> Unit)
 
 
+    public fun getCustomerInfo(
+        fetchPolicy: CacheFetchPolicy = CacheFetchPolicy.default(),
+        onResult: (Result<CustomerInfo>) -> Unit
+    )
+
     @OptIn(KMPRevenueCatInternalApi::class)
     private object PurchasesProviderImpl : KMPKoinComponent() {
         @OptIn(KMPRevenueCatInternalApi::class)
