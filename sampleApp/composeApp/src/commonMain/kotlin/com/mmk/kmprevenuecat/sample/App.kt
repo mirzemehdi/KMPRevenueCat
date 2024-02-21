@@ -29,6 +29,51 @@ fun App() {
                 style = MaterialTheme.typography.body1,
                 textAlign = TextAlign.Start,
             )
+
+            Paywall(onDismiss = {
+                                println("Ondismissed")
+            },object :PaywallListener{
+                override fun onPurchaseStarted() {
+                    super.onPurchaseStarted()
+                    println("onPurchaseStarted")
+                }
+
+                override fun onPurchaseCompleted(customerInfo: CustomerInfo?) {
+                    super.onPurchaseCompleted(customerInfo)
+                    println("onPurchaseCompleted, $customerInfo")
+
+                }
+
+                override fun onPurchaseError(error: String?) {
+                    super.onPurchaseError(error)
+                    println("onPurchaseError: $error")
+
+                }
+
+                override fun onPurchaseCancelled() {
+                    super.onPurchaseCancelled()
+                    println("onPurchaseCancelled")
+
+                }
+
+                override fun onRestoreStarted() {
+                    super.onRestoreStarted()
+                    println("onRestoreStarted")
+
+                }
+
+                override fun onRestoreCompleted(customerInfo: CustomerInfo?) {
+                    super.onRestoreCompleted(customerInfo)
+                    println("onRestoreCompleted, $customerInfo")
+
+                }
+
+                override fun onRestoreError(error: String?) {
+                    super.onRestoreError(error)
+                    println("onRestoreError: $error")
+
+                }
+            })
         }
     }
 }

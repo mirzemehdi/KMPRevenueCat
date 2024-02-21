@@ -8,12 +8,17 @@ import com.revenuecat.purchases.ui.revenuecatui.Paywall as RevenueCatPaywall
 
 @OptIn(ExperimentalPreviewRevenueCatUIPurchasesAPI::class)
 @Composable
-public actual fun Paywall(onDismiss: () -> Unit, listener: PaywallListener?) {
+public actual fun Paywall(
+    shouldDisplayDismissButton: Boolean,
+    onDismiss: () -> Unit,
+    listener: PaywallListener?
+) {
     RevenueCatPaywall(
         options = PaywallOptions.Builder(
             dismissRequest = onDismiss
         )
             .setListener(listener?.asRevenueCatPaywallListener())
+            .setShouldDisplayDismissButton(shouldDisplayDismissButton)
             .build()
     )
 }

@@ -8,10 +8,13 @@ import platform.UIKit.UIApplication
 
 @OptIn(ExperimentalForeignApi::class)
 @Composable
-public actual fun Paywall(onDismiss: () -> Unit, listener: PaywallListener?) {
+public actual fun Paywall(
+    shouldDisplayDismissButton: Boolean,
+    onDismiss: () -> Unit, listener: PaywallListener?
+) {
 
     val rootViewController = UIApplication.sharedApplication.keyWindow?.rootViewController
-    val controller = RCPaywallViewController(null, false)
+    val controller = RCPaywallViewController(null, shouldDisplayDismissButton)
     controller.setDelegate(listener?.asRCPaywallViewControllerDelegate(onDismiss))
     if (controller.isBeingPresented().not())
         rootViewController?.presentViewController(controller, true, null)
