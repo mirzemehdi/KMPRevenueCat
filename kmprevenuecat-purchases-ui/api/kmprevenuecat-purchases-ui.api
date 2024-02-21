@@ -1,0 +1,24 @@
+public final class com/mmk/kmprevenuecat/purchases/ui/PaywallKt {
+	public static final fun Paywall (Lkotlin/jvm/functions/Function0;Lcom/mmk/kmprevenuecat/purchases/ui/PaywallListener;Landroidx/compose/runtime/Composer;I)V
+}
+
+public abstract interface class com/mmk/kmprevenuecat/purchases/ui/PaywallListener {
+	public abstract fun onPurchaseCancelled ()V
+	public abstract fun onPurchaseCompleted (Lcom/mmk/kmprevenuecat/purchases/data/CustomerInfo;)V
+	public abstract fun onPurchaseError (Ljava/lang/String;)V
+	public abstract fun onPurchaseStarted ()V
+	public abstract fun onRestoreCompleted (Lcom/mmk/kmprevenuecat/purchases/data/CustomerInfo;)V
+	public abstract fun onRestoreError (Ljava/lang/String;)V
+	public abstract fun onRestoreStarted ()V
+}
+
+public final class com/mmk/kmprevenuecat/purchases/ui/PaywallListener$DefaultImpls {
+	public static fun onPurchaseCancelled (Lcom/mmk/kmprevenuecat/purchases/ui/PaywallListener;)V
+	public static fun onPurchaseCompleted (Lcom/mmk/kmprevenuecat/purchases/ui/PaywallListener;Lcom/mmk/kmprevenuecat/purchases/data/CustomerInfo;)V
+	public static fun onPurchaseError (Lcom/mmk/kmprevenuecat/purchases/ui/PaywallListener;Ljava/lang/String;)V
+	public static fun onPurchaseStarted (Lcom/mmk/kmprevenuecat/purchases/ui/PaywallListener;)V
+	public static fun onRestoreCompleted (Lcom/mmk/kmprevenuecat/purchases/ui/PaywallListener;Lcom/mmk/kmprevenuecat/purchases/data/CustomerInfo;)V
+	public static fun onRestoreError (Lcom/mmk/kmprevenuecat/purchases/ui/PaywallListener;Ljava/lang/String;)V
+	public static fun onRestoreStarted (Lcom/mmk/kmprevenuecat/purchases/ui/PaywallListener;)V
+}
+

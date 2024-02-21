@@ -1,0 +1,76 @@
+public abstract interface annotation class com/mmk/kmprevenuecat/purchases/KMPRevenueCatInternalApi : java/lang/annotation/Annotation {
+}
+
+public final class com/mmk/kmprevenuecat/purchases/LogLevel : java/lang/Enum {
+	public static final field DEBUG Lcom/mmk/kmprevenuecat/purchases/LogLevel;
+	public static final field ERROR Lcom/mmk/kmprevenuecat/purchases/LogLevel;
+	public static final field INFO Lcom/mmk/kmprevenuecat/purchases/LogLevel;
+	public static final field VERBOSE Lcom/mmk/kmprevenuecat/purchases/LogLevel;
+	public static final field WARN Lcom/mmk/kmprevenuecat/purchases/LogLevel;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/mmk/kmprevenuecat/purchases/LogLevel;
+	public static fun values ()[Lcom/mmk/kmprevenuecat/purchases/LogLevel;
+}
+
+public final class com/mmk/kmprevenuecat/purchases/Mapper_androidKt {
+	public static final fun asCustomerInfo (Lcom/revenuecat/purchases/CustomerInfo;)Lcom/mmk/kmprevenuecat/purchases/data/CustomerInfo;
+}
+
+public abstract interface class com/mmk/kmprevenuecat/purchases/Purchases {
+	public static final field Companion Lcom/mmk/kmprevenuecat/purchases/Purchases$Companion;
+	public abstract fun configure (Ljava/lang/String;)V
+	public abstract fun getLogLevel ()Lcom/mmk/kmprevenuecat/purchases/LogLevel;
+	public abstract fun logOut (Lkotlin/jvm/functions/Function1;)V
+	public abstract fun login (Ljava/lang/String;Lkotlin/jvm/functions/Function1;)V
+	public abstract fun setLogLevel (Lcom/mmk/kmprevenuecat/purchases/LogLevel;)V
+}
+
+public final class com/mmk/kmprevenuecat/purchases/Purchases$Companion : com/mmk/kmprevenuecat/purchases/Purchases {
+	public fun configure (Ljava/lang/String;)V
+	public fun getLogLevel ()Lcom/mmk/kmprevenuecat/purchases/LogLevel;
+	public fun logOut (Lkotlin/jvm/functions/Function1;)V
+	public fun login (Ljava/lang/String;Lkotlin/jvm/functions/Function1;)V
+	public fun setLogLevel (Lcom/mmk/kmprevenuecat/purchases/LogLevel;)V
+}
+
+public final class com/mmk/kmprevenuecat/purchases/data/CustomerInfo {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lcom/mmk/kmprevenuecat/purchases/data/CustomerInfo;
+	public static synthetic fun copy$default (Lcom/mmk/kmprevenuecat/purchases/data/CustomerInfo;Ljava/lang/String;ILjava/lang/Object;)Lcom/mmk/kmprevenuecat/purchases/data/CustomerInfo;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getOriginalAppUserId ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mmk/kmprevenuecat/purchases/data/LogInResult {
+	public fun <init> (Lcom/mmk/kmprevenuecat/purchases/data/CustomerInfo;Z)V
+	public final fun component1 ()Lcom/mmk/kmprevenuecat/purchases/data/CustomerInfo;
+	public final fun component2 ()Z
+	public final fun copy (Lcom/mmk/kmprevenuecat/purchases/data/CustomerInfo;Z)Lcom/mmk/kmprevenuecat/purchases/data/LogInResult;
+	public static synthetic fun copy$default (Lcom/mmk/kmprevenuecat/purchases/data/LogInResult;Lcom/mmk/kmprevenuecat/purchases/data/CustomerInfo;ZILjava/lang/Object;)Lcom/mmk/kmprevenuecat/purchases/data/LogInResult;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCreated ()Z
+	public final fun getCustomerInfo ()Lcom/mmk/kmprevenuecat/purchases/data/CustomerInfo;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract class com/mmk/kmprevenuecat/purchases/di/KMPKoinComponent : org/koin/core/component/KoinComponent {
+	public fun <init> ()V
+	public fun getKoin ()Lorg/koin/core/Koin;
+}
+
+public final class com/mmk/kmprevenuecat/purchases/di/LibDependencyInitializer {
+	public static final field INSTANCE Lcom/mmk/kmprevenuecat/purchases/di/LibDependencyInitializer;
+	public final fun getKoinApp ()Lorg/koin/core/KoinApplication;
+	public final fun initialize (Ljava/util/List;)V
+	public final fun initialize (Lorg/koin/core/module/Module;)V
+	public static synthetic fun initialize$default (Lcom/mmk/kmprevenuecat/purchases/di/LibDependencyInitializer;Ljava/util/List;ILjava/lang/Object;)V
+}
+
+public final class com/mmk/kmprevenuecat/purchases/di/PlatformModule_androidKt {
+	public static final fun isAndroidPlatform ()Z
+}
+
