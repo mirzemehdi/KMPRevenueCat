@@ -3,6 +3,10 @@ package com.mmk.kmprevenuecat.purchases.di
 import android.content.Context
 import androidx.startup.Initializer
 import com.mmk.kmprevenuecat.purchases.KMPRevenueCatInternalApi
+import com.mmk.kmprevenuecat.purchases.Purchases
+import com.mmk.kmprevenuecat.purchases.PurchasesImpl
+import org.koin.core.module.dsl.factoryOf
+import org.koin.dsl.bind
 import org.koin.dsl.module
 
 internal lateinit var applicationContext: Context
@@ -23,6 +27,7 @@ internal class ContextInitializer : Initializer<Unit> {
 public actual fun isAndroidPlatform(): Boolean = true
 internal actual val platformModule = module {
     single { applicationContext }
+    factoryOf(::PurchasesImpl) bind Purchases::class
 }
 
 
