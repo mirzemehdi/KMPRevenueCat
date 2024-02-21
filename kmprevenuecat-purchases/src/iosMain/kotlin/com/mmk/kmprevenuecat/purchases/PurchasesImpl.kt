@@ -2,6 +2,8 @@ package com.mmk.kmprevenuecat.purchases
 
 import cocoapods.RevenueCat.RCPurchases
 import cocoapods.RevenueCat.configureWithAPIKey
+import com.mmk.kmprevenuecat.purchases.data.CustomerInfo
+import com.mmk.kmprevenuecat.purchases.data.LogInResult
 import kotlinx.cinterop.ExperimentalForeignApi
 
 
@@ -15,5 +17,31 @@ internal class PurchasesImpl : Purchases {
 
     override fun configure(apiKey: String) {
         RCPurchases.configureWithAPIKey(apiKey)
+    }
+
+    override fun login(appUserId: String, onResult: (Result<LogInResult>) -> Unit) {
+        RCPurchases.sharedPurchases()
+            .logIn(appUserId, completionHandler = { rcCustomerInfo, created, nsError ->
+                if (rcCustomerInfo != null) onResult(
+                    Result.success(
+                        LogInResult(
+                            customerInfo = rcCustomerInfo.asCustomerInfo(),
+                            created = created
+                        )
+                    )
+                )
+                else
+                    onResult(Result.failure(Exception(nsError?.localizedFailureReason)))
+            })
+    }
+
+    override fun logOut(onResult: (Result<CustomerInfo>) -> Unit) {
+        RCPurchases.sharedPurchases().logOutWithCompletion { rcCustomerInfo, nsError ->
+            if (rcCustomerInfo != null) onResult(
+                Result.success(rcCustomerInfo.asCustomerInfo())
+            )
+            else
+                onResult(Result.failure(Exception(nsError?.localizedFailureReason)))
+        }
     }
 }

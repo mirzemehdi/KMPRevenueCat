@@ -1,5 +1,7 @@
 package com.mmk.kmprevenuecat.purchases
 
+import com.mmk.kmprevenuecat.purchases.data.CustomerInfo
+import com.mmk.kmprevenuecat.purchases.data.LogInResult
 import com.mmk.kmprevenuecat.purchases.di.KMPKoinComponent
 import com.mmk.kmprevenuecat.purchases.di.LibDependencyInitializer
 import org.koin.core.component.get
@@ -10,6 +12,9 @@ public interface Purchases {
     public var logLevel: LogLevel
 
     public fun configure(apiKey: String)
+
+    public fun login(appUserId: String, onResult: (Result<LogInResult>) -> Unit)
+    public fun logOut(onResult: (Result<CustomerInfo>) -> Unit)
 
 
     @OptIn(KMPRevenueCatInternalApi::class)

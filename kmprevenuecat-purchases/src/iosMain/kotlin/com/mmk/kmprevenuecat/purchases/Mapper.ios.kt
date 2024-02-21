@@ -1,10 +1,12 @@
 package com.mmk.kmprevenuecat.purchases
 
+import cocoapods.RevenueCat.RCCustomerInfo
 import cocoapods.RevenueCat.RCLogLevelDebug
 import cocoapods.RevenueCat.RCLogLevelError
 import cocoapods.RevenueCat.RCLogLevelInfo
 import cocoapods.RevenueCat.RCLogLevelVerbose
 import cocoapods.RevenueCat.RCLogLevelWarn
+import com.mmk.kmprevenuecat.purchases.data.CustomerInfo
 import kotlinx.cinterop.ExperimentalForeignApi
 
 
@@ -30,5 +32,10 @@ internal fun Long.asLogLevel():LogLevel{
         RCLogLevelError ->LogLevel.ERROR
         else -> LogLevel.DEBUG
     }
+}
+
+@OptIn(ExperimentalForeignApi::class)
+internal fun RCCustomerInfo.asCustomerInfo():CustomerInfo{
+    return CustomerInfo(originalAppUserId=originalAppUserId())
 }
 
