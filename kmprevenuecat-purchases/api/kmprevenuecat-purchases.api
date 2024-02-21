@@ -15,6 +15,7 @@ public final class com/mmk/kmprevenuecat/purchases/CacheFetchPolicy$Companion {
 
 public final class com/mmk/kmprevenuecat/purchases/CoroutinesExtensionsKt {
 	public static final fun awaitCustomerInfo (Lcom/mmk/kmprevenuecat/purchases/Purchases;Lcom/mmk/kmprevenuecat/purchases/CacheFetchPolicy;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun awaitCustomerInfo$default (Lcom/mmk/kmprevenuecat/purchases/Purchases;Lcom/mmk/kmprevenuecat/purchases/CacheFetchPolicy;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
 }
 
 public abstract interface annotation class com/mmk/kmprevenuecat/purchases/KMPRevenueCatInternalApi : java/lang/annotation/Annotation {
@@ -56,6 +57,10 @@ public final class com/mmk/kmprevenuecat/purchases/Purchases$Companion : com/mmk
 
 public final class com/mmk/kmprevenuecat/purchases/Purchases$DefaultImpls {
 	public static synthetic fun getCustomerInfo$default (Lcom/mmk/kmprevenuecat/purchases/Purchases;Lcom/mmk/kmprevenuecat/purchases/CacheFetchPolicy;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
+}
+
+public final class com/mmk/kmprevenuecat/purchases/PurchasesException : java/lang/Exception {
+	public fun <init> (Ljava/lang/String;)V
 }
 
 public final class com/mmk/kmprevenuecat/purchases/data/CustomerInfo {
