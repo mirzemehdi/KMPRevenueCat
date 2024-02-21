@@ -1,5 +1,5 @@
 public final class com/mmk/kmprevenuecat/purchases/ui/PaywallKt {
-	public static final fun Paywall (Lkotlin/jvm/functions/Function0;Lcom/mmk/kmprevenuecat/purchases/ui/PaywallListener;Landroidx/compose/runtime/Composer;I)V
+	public static final fun Paywall (ZLkotlin/jvm/functions/Function0;Lcom/mmk/kmprevenuecat/purchases/ui/PaywallListener;Landroidx/compose/runtime/Composer;II)V
 }
 
 public abstract interface class com/mmk/kmprevenuecat/purchases/ui/PaywallListener {

@@ -30,7 +30,7 @@ fun App() {
                 textAlign = TextAlign.Start,
             )
 
-            Paywall(onDismiss = {
+            Paywall(shouldDisplayDismissButton = true,onDismiss = {
                                 println("Ondismissed")
             },object :PaywallListener{
                 override fun onPurchaseStarted() {
