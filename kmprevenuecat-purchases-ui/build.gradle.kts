@@ -24,10 +24,11 @@ kotlin {
     cocoapods {
         ios.deploymentTarget = "15.0"
         framework {
-            baseName = "KMPRevenueCatPurchases"
+            baseName = "KMPRevenueCatPurchasesUI"
             isStatic = true
         }
-        pod("RevenueCat"){
+
+        pod("RevenueCatUI"){
             extraOpts += listOf("-compiler-option", "-fmodules")
         }
     }
@@ -37,11 +38,9 @@ kotlin {
     sourceSets {
 
         androidMain.dependencies {
-            implementation(libs.androidx.startup.runtime)
             implementation(libs.androidx.core.ktx)
             implementation(libs.androidx.activity.ktx)
-
-            implementation(libs.revenuecat.purchases)
+            implementation(libs.revenuecat.purchases.ui)
         }
         commonMain.dependencies {
             implementation(libs.koin.core)
@@ -50,7 +49,7 @@ kotlin {
 }
 
 android {
-    namespace = "com.mmk.kmprevenuecat.purchases"
+    namespace = "com.mmk.kmprevenuecat.purchases.ui"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")

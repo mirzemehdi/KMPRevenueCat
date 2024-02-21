@@ -1,35 +1,35 @@
 Pod::Spec.new do |spec|
-    spec.name                     = 'kmprevenuecat_purchases'
+    spec.name                     = 'kmprevenuecat_purchases_ui'
     spec.version                  = '0.0.1'
     spec.homepage                 = ''
     spec.source                   = { :http=> ''}
     spec.authors                  = ''
     spec.license                  = ''
     spec.summary                  = ''
-    spec.vendored_frameworks      = 'build/cocoapods/framework/KMPRevenueCatPurchases.framework'
+    spec.vendored_frameworks      = 'build/cocoapods/framework/KMPRevenueCatPurchasesUI.framework'
     spec.libraries                = 'c++'
     spec.ios.deployment_target = '15.0'
-    spec.dependency 'RevenueCat'
+    spec.dependency 'RevenueCatUI'
                 
-    if !Dir.exist?('build/cocoapods/framework/KMPRevenueCatPurchases.framework') || Dir.empty?('build/cocoapods/framework/KMPRevenueCatPurchases.framework')
+    if !Dir.exist?('build/cocoapods/framework/KMPRevenueCatPurchasesUI.framework') || Dir.empty?('build/cocoapods/framework/KMPRevenueCatPurchasesUI.framework')
         raise "
 
-        Kotlin framework 'KMPRevenueCatPurchases' doesn't exist yet, so a proper Xcode project can't be generated.
+        Kotlin framework 'KMPRevenueCatPurchasesUI' doesn't exist yet, so a proper Xcode project can't be generated.
         'pod install' should be executed after running ':generateDummyFramework' Gradle task:
 
-            ./gradlew :kmprevenuecat-purchases:generateDummyFramework
+            ./gradlew :kmprevenuecat-purchases-ui:generateDummyFramework
 
         Alternatively, proper pod installation is performed during Gradle sync in the IDE (if Podfile location is set)"
     end
                 
     spec.pod_target_xcconfig = {
-        'KOTLIN_PROJECT_PATH' => ':kmprevenuecat-purchases',
-        'PRODUCT_MODULE_NAME' => 'KMPRevenueCatPurchases',
+        'KOTLIN_PROJECT_PATH' => ':kmprevenuecat-purchases-ui',
+        'PRODUCT_MODULE_NAME' => 'KMPRevenueCatPurchasesUI',
     }
                 
     spec.script_phases = [
         {
-            :name => 'Build kmprevenuecat_purchases',
+            :name => 'Build kmprevenuecat_purchases_ui',
             :execution_position => :before_compile,
             :shell_path => '/bin/sh',
             :script => <<-SCRIPT
