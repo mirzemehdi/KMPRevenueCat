@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.kotlinNativeCocoaPods)
+    alias(libs.plugins.jetbrainsCompose)
 }
 
 kotlin {
@@ -28,6 +29,9 @@ kotlin {
             isStatic = true
         }
 
+        pod("RevenueCat"){
+            extraOpts += listOf("-compiler-option", "-fmodules")
+        }
         pod("RevenueCatUI"){
             extraOpts += listOf("-compiler-option", "-fmodules")
         }
@@ -40,10 +44,17 @@ kotlin {
         androidMain.dependencies {
             implementation(libs.androidx.core.ktx)
             implementation(libs.androidx.activity.ktx)
+            implementation(libs.revenuecat.purchases)
             implementation(libs.revenuecat.purchases.ui)
         }
         commonMain.dependencies {
             implementation(libs.koin.core)
+            implementation(compose.runtime)
+            implementation(compose.foundation)
+            implementation(compose.material3)
+            implementation(project(":kmprevenuecat-purchases"))
+        }
+        iosMain.dependencies {
         }
     }
 }

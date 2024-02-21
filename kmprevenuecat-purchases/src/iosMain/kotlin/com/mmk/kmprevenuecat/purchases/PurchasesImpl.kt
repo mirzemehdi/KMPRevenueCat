@@ -19,6 +19,7 @@ internal class PurchasesImpl : Purchases {
         RCPurchases.configureWithAPIKey(apiKey)
     }
 
+    @OptIn(KMPRevenueCatInternalApi::class)
     override fun login(appUserId: String, onResult: (Result<LogInResult>) -> Unit) {
         RCPurchases.sharedPurchases()
             .logIn(appUserId, completionHandler = { rcCustomerInfo, created, nsError ->
@@ -35,6 +36,7 @@ internal class PurchasesImpl : Purchases {
             })
     }
 
+    @OptIn(KMPRevenueCatInternalApi::class)
     override fun logOut(onResult: (Result<CustomerInfo>) -> Unit) {
         RCPurchases.sharedPurchases().logOutWithCompletion { rcCustomerInfo, nsError ->
             if (rcCustomerInfo != null) onResult(

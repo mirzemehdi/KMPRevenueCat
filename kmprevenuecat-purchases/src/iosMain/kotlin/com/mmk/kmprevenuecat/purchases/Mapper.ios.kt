@@ -35,7 +35,7 @@ internal fun Long.asLogLevel():LogLevel{
 }
 
 @OptIn(ExperimentalForeignApi::class)
-internal fun RCCustomerInfo.asCustomerInfo():CustomerInfo{
+public fun RCCustomerInfo.asCustomerInfo():CustomerInfo{
     return CustomerInfo(originalAppUserId=originalAppUserId())
 }
 

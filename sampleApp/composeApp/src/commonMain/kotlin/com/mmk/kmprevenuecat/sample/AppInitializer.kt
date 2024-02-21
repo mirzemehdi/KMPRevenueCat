@@ -8,8 +8,7 @@ object AppInitializer {
     fun onApplicationStart() {
         onApplicationStartPlatformSpecific()
         Purchases.logLevel = LogLevel.DEBUG
-        Purchases.configure("goog_EgunaTyXgbBGvtLUxYdVwddiGRC")
-//        Purchases.configure("appl_eGNPjbifNVdVHWPXlrkmZkUnUbm")
+        Purchases.configure("YOUR_API_KEY")
 
     }
 }

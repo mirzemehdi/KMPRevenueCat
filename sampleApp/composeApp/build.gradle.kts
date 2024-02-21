@@ -39,6 +39,7 @@ kotlin {
             @OptIn(ExperimentalComposeLibrary::class)
             implementation(compose.components.resources)
             implementation(project(":kmprevenuecat-purchases"))
+            implementation(project(":kmprevenuecat-purchases-ui"))
         }
     }
 }

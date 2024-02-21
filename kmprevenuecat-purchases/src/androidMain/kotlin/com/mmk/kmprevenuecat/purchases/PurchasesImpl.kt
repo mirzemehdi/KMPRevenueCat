@@ -21,6 +21,7 @@ internal class PurchasesImpl(private val context: Context) : Purchases {
         RevenueCatPurchases.configure(PurchasesConfiguration.Builder(context, apiKey).build())
     }
 
+    @OptIn(KMPRevenueCatInternalApi::class)
     override fun login(appUserId: String, onResult: (Result<LogInResult>) -> Unit) {
         RevenueCatPurchases.sharedInstance.logIn(appUserId, object : RevenueCatLoginCallback {
             override fun onError(error: PurchasesError) {
@@ -33,6 +34,7 @@ internal class PurchasesImpl(private val context: Context) : Purchases {
         })
     }
 
+    @OptIn(KMPRevenueCatInternalApi::class)
     override fun logOut(onResult: (Result<CustomerInfo>) -> Unit) {
         RevenueCatPurchases.sharedInstance.logOut(object : ReceiveCustomerInfoCallback {
             override fun onError(error: PurchasesError) {

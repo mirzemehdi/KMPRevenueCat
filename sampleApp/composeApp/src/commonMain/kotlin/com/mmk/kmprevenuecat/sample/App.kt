@@ -11,6 +11,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import com.mmk.kmprevenuecat.purchases.data.CustomerInfo
+import com.mmk.kmprevenuecat.purchases.ui.Paywall
+import com.mmk.kmprevenuecat.purchases.ui.PaywallListener
 
 @Composable
 fun App() {

@@ -26,7 +26,8 @@ internal fun RevenueCatLogLevel.asLogLevel(): LogLevel {
     }
 }
 
-internal fun RevenueCatCustomerInfo.asCustomerInfo(): CustomerInfo {
+@KMPRevenueCatInternalApi
+public fun RevenueCatCustomerInfo.asCustomerInfo(): CustomerInfo {
     return CustomerInfo(
         originalAppUserId = this.originalAppUserId
     )

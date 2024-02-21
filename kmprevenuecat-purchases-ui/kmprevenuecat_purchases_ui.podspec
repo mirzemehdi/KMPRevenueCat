@@ -9,6 +9,7 @@ Pod::Spec.new do |spec|
     spec.vendored_frameworks      = 'build/cocoapods/framework/KMPRevenueCatPurchasesUI.framework'
     spec.libraries                = 'c++'
     spec.ios.deployment_target = '15.0'
+    spec.dependency 'RevenueCat'
     spec.dependency 'RevenueCatUI'
                 
     if !Dir.exist?('build/cocoapods/framework/KMPRevenueCatPurchasesUI.framework') || Dir.empty?('build/cocoapods/framework/KMPRevenueCatPurchasesUI.framework')
@@ -46,5 +47,5 @@ Pod::Spec.new do |spec|
             SCRIPT
         }
     ]
-                
+    spec.resources = ['build/compose/ios/KMPRevenueCatPurchasesUI/compose-resources']
 end
