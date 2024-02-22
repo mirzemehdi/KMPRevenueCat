@@ -7,5 +7,5 @@
 ![badge-ios](http://img.shields.io/badge/platform-ios-CDCDCD.svg?style=flat)
 
 
-
+KMPRevenueCat is an unofficial Kotlin Multiplatform library, wrapper library around RevenueCat integration with a Kotlin-first approach, offering a unified API for subscription/in-app purchases across iOS, and Android.
 

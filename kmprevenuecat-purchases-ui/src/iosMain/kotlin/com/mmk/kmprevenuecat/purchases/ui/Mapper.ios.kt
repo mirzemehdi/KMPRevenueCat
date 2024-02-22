@@ -42,6 +42,7 @@ internal fun PaywallListener.asRCPaywallViewControllerDelegate(onDismissed: () -
             controller: RCPaywallViewController,
             didFinishPurchasingWithCustomerInfo: RCCustomerInfo
         ) {
+            didFinishPurchasingWithCustomerInfo
             //TODO FIX this
             this@asRCPaywallViewControllerDelegate.onPurchaseCompleted(
                 null

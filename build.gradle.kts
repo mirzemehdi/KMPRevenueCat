@@ -63,7 +63,7 @@ allprojects {
                 pom {
                     groupId = "io.github.mirzemehdi"
                     name.set("KMPRevenueCat")
-                    description.set("KMPRevenueCat is an unofficial Kotlin Multiplatform library, RevenueCat integration with a Kotlin-first approach, offering a unified API for in-app purchases across iOS, and Android.")
+                    description.set("KMPRevenueCat is an unofficial Kotlin Multiplatform library, wrapper library around RevenueCat integration with a Kotlin-first approach, offering a unified API for subscription/in-app purchases across iOS, and Android.")
                     licenses {
                         license {
                             name.set("Apache-2.0")
