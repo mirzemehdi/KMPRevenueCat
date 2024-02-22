@@ -10,6 +10,7 @@ import com.revenuecat.purchases.PurchasesException
 import com.revenuecat.purchases.awaitCustomerInfo
 import com.revenuecat.purchases.getCustomerInfoWith
 import com.revenuecat.purchases.interfaces.ReceiveCustomerInfoCallback
+import java.util.jar.Attributes
 import kotlin.coroutines.resume
 import kotlin.coroutines.resumeWithException
 import kotlin.coroutines.suspendCoroutine
@@ -70,6 +71,10 @@ internal class PurchasesImpl(private val context: Context) : Purchases {
                 }
 
             })
+    }
+
+    override fun setAttributes(attributes: Map<String,String?>){
+        RevenueCatPurchases.sharedInstance.setAttributes(attributes)
     }
 
 }

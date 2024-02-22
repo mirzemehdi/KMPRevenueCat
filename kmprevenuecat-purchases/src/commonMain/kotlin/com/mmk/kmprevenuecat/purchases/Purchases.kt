@@ -22,6 +22,8 @@ public interface Purchases {
         onResult: (Result<CustomerInfo>) -> Unit
     )
 
+    public fun setAttributes(attributes: Map<String,String?>)
+
     @OptIn(KMPRevenueCatInternalApi::class)
     private object PurchasesProviderImpl : KMPKoinComponent() {
         @OptIn(KMPRevenueCatInternalApi::class)

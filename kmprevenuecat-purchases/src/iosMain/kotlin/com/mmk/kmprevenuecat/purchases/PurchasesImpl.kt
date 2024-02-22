@@ -64,4 +64,11 @@ internal class PurchasesImpl : Purchases {
                     onResult(Result.failure(Exception(nsError?.localizedFailureReason)))
             })
     }
+
+    override fun setAttributes(attributes: Map<String,String?>){
+        val map = attributes.map { (key, value) ->
+            key as Any? to value as Any?
+        }.toMap()
+        RCPurchases.sharedPurchases().setAttributes(map)
+    }
 }
