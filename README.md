@@ -7,5 +7,63 @@
 ![badge-ios](http://img.shields.io/badge/platform-ios-CDCDCD.svg?style=flat)
 
 
-KMPRevenueCat is an unofficial Kotlin Multiplatform library, wrapper library around RevenueCat integration with a Kotlin-first approach, offering a unified API for subscription/in-app purchases across iOS, and Android.
+KMPRevenueCat is an _**unofficial**_ Kotlin Multiplatform library designed as a wrapper for [RevenueCat](https://www.revenuecat.com/). It provides a unified API for managing subscription and in-app purchases across both iOS and Android platforms. You can see how this library is used in [FindTravelNow](https://github.com/mirzemehdi/FindTravelNow-KMM/) production Compose + KMP project.
+For the documentation, please refer to the official [RevenueCat Documentation](https://www.revenuecat.com/docs/getting-started/quickstart), Kotlin section. The library is designed in the same way as it is shown in the official documentation.
+
+## Installation
+
+### Minimum Requirements
+
+- **Android:** `minSdkVersion 24`
+- **iOS:** `minDeploymentTarget 15.0`
+
+### Gradle Setup
+KMPRevenueCat is available on Maven Central. In your root project `build.gradle.kts` file (or `settings.gradle` file) add `mavenCentral()` to repositories.  
+
+**_You will also need to include RevenueCat library to your ios app from XCode using Swift Package Manager or Cocoapods._**   
+
+
+```kotlin
+repositories { 
+  mavenCentral()
+}
+```
+
+Then in your shared module add desired dependencies in `commonMain`. Latest version: [![Maven Central](https://img.shields.io/maven-central/v/io.github.mirzemehdi/kmprevenuecat-purchases?color=blue)](https://search.maven.org/search?q=g:io.github.mirzemehdi+kmprevenuecat).
+```kotlin
+sourceSets {
+  commonMain.dependencies {
+    implementation("io.github.mirzemehdi:kmprevenuecat-purchases:<version>") //RevenueCat Purchases
+    implementation("io.github.mirzemehdi:kmprevenuecat-purchases-ui:<version>") //RevenueCat Purchases UI
+  }
+}
+```
+
+## Available Functions
+
+### Purchases
+```kotlin
+var logLevel: LogLevel
+fun configure(apiKey: String)
+fun login(appUserId: String, onResult: (Result<LogInResult>) -> Unit)
+fun logOut(onResult: (Result<CustomerInfo>) -> Unit)
+fun getCustomerInfo(fetchPolicy: CacheFetchPolicy = CacheFetchPolicy.default(),onResult: (Result<CustomerInfo>) -> Unit)
+fun setAttributes(attributes: Map<String,String?>)
+
+```
+### Purchases-UI
+
+```kotlin
+//This Composable can be used in Compose Multiplatform
+
+@Composable
+fun Paywall(shouldDisplayDismissButton: Boolean = true,onDismiss: () -> Unit,listener: PaywallListener?)
+```
+
+
+## Contributing
+
+Contributions are welcome! When covering new class/functions, please, follow RevenueCat's Kotlin style, maintaining the same naming conventions for functions and classes with identical parameters. Provide clear commits and open issues for problems or suggestions on the [Issues](https://github.com/mirzemehdi/KMPRevenueCat/issues) page. Your help makes this project better – thanks!
+
+
 
