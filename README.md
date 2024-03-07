@@ -10,6 +10,8 @@
 KMPRevenueCat is an _**unofficial**_ Kotlin Multiplatform library designed as a wrapper for [RevenueCat](https://www.revenuecat.com/). It provides a unified API for managing subscription and in-app purchases across both iOS and Android platforms. You can see how this library is used in [FindTravelNow](https://github.com/mirzemehdi/FindTravelNow-KMM/) production Compose + KMP project.
 For the documentation, please refer to the official [RevenueCat Documentation](https://www.revenuecat.com/docs/getting-started/quickstart), Kotlin section. The library is designed in the same way as it is shown in the official documentation.
 
+Related Blog Post (if you want to integrate it yourself without this library): https://medium.com/@mirzemehdi/integrating-revenuecat-into-kotlin-multiplatform-465ffa47a97b   
+
 ## Installation
 
 ### Minimum Requirements
