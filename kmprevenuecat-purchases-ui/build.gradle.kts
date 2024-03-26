@@ -30,9 +30,11 @@ kotlin {
         }
 
         pod("RevenueCat"){
+            version=libs.versions.revenueCatIos.get()
             extraOpts += listOf("-compiler-option", "-fmodules")
         }
         pod("RevenueCatUI"){
+            version=libs.versions.revenueCatIos.get()
             extraOpts += listOf("-compiler-option", "-fmodules")
         }
     }

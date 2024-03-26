@@ -21,6 +21,7 @@ kotlinx-binary-validator = "0.13.2"
 dokka = "1.9.10"
 koinCompose = "1.1.0"
 revenueCatAndroid="7.5.2"
+revenueCatIos="4.39.0"
 
 
 

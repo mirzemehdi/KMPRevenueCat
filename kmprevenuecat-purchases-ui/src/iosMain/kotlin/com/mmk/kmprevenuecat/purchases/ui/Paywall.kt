@@ -10,15 +10,22 @@ import platform.UIKit.UIApplication
 @Composable
 public actual fun Paywall(
     shouldDisplayDismissButton: Boolean,
-    onDismiss: () -> Unit, listener: PaywallListener?
+    onDismiss: () -> Unit,
+    listener: PaywallListener?
 ) {
-
     val rootViewController = UIApplication.sharedApplication.keyWindow?.rootViewController
-    val controller = RCPaywallViewController(null, shouldDisplayDismissButton)
-    controller.setDelegate(listener?.asRCPaywallViewControllerDelegate(onDismiss))
-    if (controller.isBeingPresented().not())
-        rootViewController?.presentViewController(controller, true, completion = {
-            if (controller.isBeingPresented().not()) onDismiss()
-        })
 
+    RCPaywallViewController(
+        offering = null,
+        displayCloseButton = shouldDisplayDismissButton,
+        dismissRequestedHandler = null
+    ).apply {
+        updateWithDisplayCloseButton(shouldDisplayDismissButton)
+        setDelegate(listener?.asRCPaywallViewControllerDelegate(onDismiss))
+    }.also {
+        if (it.isBeingPresented().not())
+            rootViewController?.presentViewController(it, true, completion = {
+                if (it.isBeingPresented().not()) onDismiss()
+            })
+    }
 }
