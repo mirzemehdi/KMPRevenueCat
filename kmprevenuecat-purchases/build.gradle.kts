@@ -28,6 +28,7 @@ kotlin {
             isStatic = true
         }
         pod("RevenueCat"){
+            version=libs.versions.revenueCatIos.get()
             extraOpts += listOf("-compiler-option", "-fmodules")
         }
     }
