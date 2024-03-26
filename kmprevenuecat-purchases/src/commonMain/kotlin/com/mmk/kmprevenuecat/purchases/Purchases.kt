@@ -34,4 +34,6 @@ public interface Purchases {
 
     }
 
+    public fun setFirebaseAppInstanceID(firebaseAppInstanceID: String)
+
 }

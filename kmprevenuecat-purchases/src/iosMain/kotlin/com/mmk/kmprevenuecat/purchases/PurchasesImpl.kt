@@ -71,4 +71,8 @@ internal class PurchasesImpl : Purchases {
         }.toMap()
         RCPurchases.sharedPurchases().setAttributes(map)
     }
+
+    override fun setFirebaseAppInstanceID(firebaseAppInstanceID: String){
+        RCPurchases.sharedPurchases().setFirebaseAppInstanceID(firebaseAppInstanceID)
+    }
 }

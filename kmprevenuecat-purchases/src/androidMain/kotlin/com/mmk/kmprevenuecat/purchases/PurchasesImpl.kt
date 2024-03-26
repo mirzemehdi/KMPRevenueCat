@@ -77,4 +77,8 @@ internal class PurchasesImpl(private val context: Context) : Purchases {
         RevenueCatPurchases.sharedInstance.setAttributes(attributes)
     }
 
+    override fun setFirebaseAppInstanceID(firebaseAppInstanceID: String) {
+        RevenueCatPurchases.sharedInstance.setFirebaseAppInstanceID(firebaseAppInstanceID)
+    }
+
 }
