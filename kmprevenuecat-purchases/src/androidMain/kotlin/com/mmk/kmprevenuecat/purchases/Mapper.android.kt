@@ -75,6 +75,7 @@ internal fun RevenueCatEntitlementInfo.asEntitlementInfo(): EntitlementInfo {
 public fun RevenueCatCustomerInfo.asCustomerInfo(): CustomerInfo {
     return CustomerInfo(
         originalAppUserId = this.originalAppUserId,
-        entitlements = entitlements.asEntitlementInfos()
+        entitlements = entitlements.asEntitlementInfos(),
+        managementURL = managementURL.toString()
     )
 }
