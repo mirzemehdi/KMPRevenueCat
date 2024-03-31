@@ -3,17 +3,10 @@ package com.mmk.kmprevenuecat.purchases
 import android.content.Context
 import com.mmk.kmprevenuecat.purchases.data.CustomerInfo
 import com.mmk.kmprevenuecat.purchases.data.LogInResult
-import com.revenuecat.purchases.CustomerInfo as RevenueCatCustomerInfo
 import com.revenuecat.purchases.PurchasesConfiguration
 import com.revenuecat.purchases.PurchasesError
-import com.revenuecat.purchases.PurchasesException
-import com.revenuecat.purchases.awaitCustomerInfo
-import com.revenuecat.purchases.getCustomerInfoWith
 import com.revenuecat.purchases.interfaces.ReceiveCustomerInfoCallback
-import java.util.jar.Attributes
-import kotlin.coroutines.resume
-import kotlin.coroutines.resumeWithException
-import kotlin.coroutines.suspendCoroutine
+import com.revenuecat.purchases.CustomerInfo as RevenueCatCustomerInfo
 import com.revenuecat.purchases.Purchases as RevenueCatPurchases
 import com.revenuecat.purchases.interfaces.LogInCallback as RevenueCatLoginCallback
 
@@ -24,8 +17,12 @@ internal class PurchasesImpl(private val context: Context) : Purchases {
             RevenueCatPurchases.logLevel = value.asRevenueCatLogLevel()
         }
 
-    override fun configure(apiKey: String) {
-        RevenueCatPurchases.configure(PurchasesConfiguration.Builder(context, apiKey).build())
+    override fun configure(apiKey: String, appUserId: String?) {
+        RevenueCatPurchases.configure(
+            PurchasesConfiguration.Builder(context, apiKey)
+                .appUserID(appUserId)
+                .build()
+        )
     }
 
     @OptIn(KMPRevenueCatInternalApi::class)
@@ -73,7 +70,7 @@ internal class PurchasesImpl(private val context: Context) : Purchases {
             })
     }
 
-    override fun setAttributes(attributes: Map<String,String?>){
+    override fun setAttributes(attributes: Map<String, String?>) {
         RevenueCatPurchases.sharedInstance.setAttributes(attributes)
     }
 

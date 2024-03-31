@@ -5,9 +5,6 @@ import cocoapods.RevenueCat.configureWithAPIKey
 import com.mmk.kmprevenuecat.purchases.data.CustomerInfo
 import com.mmk.kmprevenuecat.purchases.data.LogInResult
 import kotlinx.cinterop.ExperimentalForeignApi
-import kotlin.coroutines.resume
-import kotlin.coroutines.resumeWithException
-import kotlin.coroutines.suspendCoroutine
 
 
 @OptIn(ExperimentalForeignApi::class)
@@ -18,8 +15,8 @@ internal class PurchasesImpl : Purchases {
             RCPurchases.setLogLevel(value.asRevenueCatLogLevel())
         }
 
-    override fun configure(apiKey: String) {
-        RCPurchases.configureWithAPIKey(apiKey)
+    override fun configure(apiKey: String, appUserId: String?) {
+        RCPurchases.configureWithAPIKey(apiKey, appUserId)
     }
 
     @OptIn(KMPRevenueCatInternalApi::class)

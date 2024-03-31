@@ -11,7 +11,7 @@ public interface Purchases {
 
     public var logLevel: LogLevel
 
-    public fun configure(apiKey: String)
+    public fun configure(apiKey: String, appUserId: String? = null)
 
     public fun login(appUserId: String, onResult: (Result<LogInResult>) -> Unit)
     public fun logOut(onResult: (Result<CustomerInfo>) -> Unit)
