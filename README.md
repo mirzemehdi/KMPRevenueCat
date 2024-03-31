@@ -49,7 +49,7 @@ sourceSets {
 ### Purchases
 ```kotlin
 var logLevel: LogLevel
-fun configure(apiKey: String)
+fun configure(apiKey: String, appUserId: String? = null)
 fun login(appUserId: String, onResult: (Result<LogInResult>) -> Unit)
 fun logOut(onResult: (Result<CustomerInfo>) -> Unit)
 fun getCustomerInfo(fetchPolicy: CacheFetchPolicy = CacheFetchPolicy.default(),onResult: (Result<CustomerInfo>) -> Unit)
