@@ -101,7 +101,7 @@ public fun RCCustomerInfo.asCustomerInfo(): CustomerInfo {
     return CustomerInfo(
         originalAppUserId = originalAppUserId(),
         entitlements = entitlements().asEntitlementInfos(),
-        managementURL = managementURL().toString()
+        managementURL = managementURL()?.absoluteString
     )
 }
 

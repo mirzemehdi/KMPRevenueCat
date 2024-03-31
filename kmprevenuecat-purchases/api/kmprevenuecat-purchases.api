@@ -38,7 +38,7 @@ public final class com/mmk/kmprevenuecat/purchases/Mapper_androidKt {
 
 public abstract interface class com/mmk/kmprevenuecat/purchases/Purchases {
 	public static final field Companion Lcom/mmk/kmprevenuecat/purchases/Purchases$Companion;
-	public abstract fun configure (Ljava/lang/String;)V
+	public abstract fun configure (Ljava/lang/String;Ljava/lang/String;)V
 	public abstract fun getCustomerInfo (Lcom/mmk/kmprevenuecat/purchases/CacheFetchPolicy;Lkotlin/jvm/functions/Function1;)V
 	public abstract fun getLogLevel ()Lcom/mmk/kmprevenuecat/purchases/LogLevel;
 	public abstract fun logOut (Lkotlin/jvm/functions/Function1;)V
@@ -49,7 +49,7 @@ public abstract interface class com/mmk/kmprevenuecat/purchases/Purchases {
 }
 
 public final class com/mmk/kmprevenuecat/purchases/Purchases$Companion : com/mmk/kmprevenuecat/purchases/Purchases {
-	public fun configure (Ljava/lang/String;)V
+	public fun configure (Ljava/lang/String;Ljava/lang/String;)V
 	public fun getCustomerInfo (Lcom/mmk/kmprevenuecat/purchases/CacheFetchPolicy;Lkotlin/jvm/functions/Function1;)V
 	public fun getLogLevel ()Lcom/mmk/kmprevenuecat/purchases/LogLevel;
 	public fun logOut (Lkotlin/jvm/functions/Function1;)V
@@ -60,6 +60,7 @@ public final class com/mmk/kmprevenuecat/purchases/Purchases$Companion : com/mmk
 }
 
 public final class com/mmk/kmprevenuecat/purchases/Purchases$DefaultImpls {
+	public static synthetic fun configure$default (Lcom/mmk/kmprevenuecat/purchases/Purchases;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)V
 	public static synthetic fun getCustomerInfo$default (Lcom/mmk/kmprevenuecat/purchases/Purchases;Lcom/mmk/kmprevenuecat/purchases/CacheFetchPolicy;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
 }
 
@@ -68,13 +69,15 @@ public final class com/mmk/kmprevenuecat/purchases/PurchasesException : java/lan
 }
 
 public final class com/mmk/kmprevenuecat/purchases/data/CustomerInfo {
-	public fun <init> (Ljava/lang/String;Lcom/mmk/kmprevenuecat/purchases/data/EntitlementInfos;)V
+	public fun <init> (Ljava/lang/String;Lcom/mmk/kmprevenuecat/purchases/data/EntitlementInfos;Ljava/lang/String;)V
 	public final fun component1 ()Ljava/lang/String;
 	public final fun component2 ()Lcom/mmk/kmprevenuecat/purchases/data/EntitlementInfos;
-	public final fun copy (Ljava/lang/String;Lcom/mmk/kmprevenuecat/purchases/data/EntitlementInfos;)Lcom/mmk/kmprevenuecat/purchases/data/CustomerInfo;
-	public static synthetic fun copy$default (Lcom/mmk/kmprevenuecat/purchases/data/CustomerInfo;Ljava/lang/String;Lcom/mmk/kmprevenuecat/purchases/data/EntitlementInfos;ILjava/lang/Object;)Lcom/mmk/kmprevenuecat/purchases/data/CustomerInfo;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Lcom/mmk/kmprevenuecat/purchases/data/EntitlementInfos;Ljava/lang/String;)Lcom/mmk/kmprevenuecat/purchases/data/CustomerInfo;
+	public static synthetic fun copy$default (Lcom/mmk/kmprevenuecat/purchases/data/CustomerInfo;Ljava/lang/String;Lcom/mmk/kmprevenuecat/purchases/data/EntitlementInfos;Ljava/lang/String;ILjava/lang/Object;)Lcom/mmk/kmprevenuecat/purchases/data/CustomerInfo;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getEntitlements ()Lcom/mmk/kmprevenuecat/purchases/data/EntitlementInfos;
+	public final fun getManagementURL ()Ljava/lang/String;
 	public final fun getOriginalAppUserId ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
