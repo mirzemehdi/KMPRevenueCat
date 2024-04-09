@@ -38,7 +38,9 @@ public final class com/mmk/kmprevenuecat/purchases/Mapper_androidKt {
 
 public abstract interface class com/mmk/kmprevenuecat/purchases/Purchases {
 	public static final field Companion Lcom/mmk/kmprevenuecat/purchases/Purchases$Companion;
+	public abstract fun collectDeviceIdentifiers ()V
 	public abstract fun configure (Ljava/lang/String;Ljava/lang/String;)V
+	public abstract fun enableAdServicesAttributionTokenCollection ()V
 	public abstract fun getCustomerInfo (Lcom/mmk/kmprevenuecat/purchases/CacheFetchPolicy;Lkotlin/jvm/functions/Function1;)V
 	public abstract fun getLogLevel ()Lcom/mmk/kmprevenuecat/purchases/LogLevel;
 	public abstract fun logOut (Lkotlin/jvm/functions/Function1;)V
@@ -49,7 +51,9 @@ public abstract interface class com/mmk/kmprevenuecat/purchases/Purchases {
 }
 
 public final class com/mmk/kmprevenuecat/purchases/Purchases$Companion : com/mmk/kmprevenuecat/purchases/Purchases {
+	public fun collectDeviceIdentifiers ()V
 	public fun configure (Ljava/lang/String;Ljava/lang/String;)V
+	public fun enableAdServicesAttributionTokenCollection ()V
 	public fun getCustomerInfo (Lcom/mmk/kmprevenuecat/purchases/CacheFetchPolicy;Lkotlin/jvm/functions/Function1;)V
 	public fun getLogLevel ()Lcom/mmk/kmprevenuecat/purchases/LogLevel;
 	public fun logOut (Lkotlin/jvm/functions/Function1;)V
