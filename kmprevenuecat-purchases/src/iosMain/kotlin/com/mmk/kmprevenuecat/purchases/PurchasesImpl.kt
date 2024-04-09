@@ -2,6 +2,7 @@ package com.mmk.kmprevenuecat.purchases
 
 import cocoapods.RevenueCat.RCPurchases
 import cocoapods.RevenueCat.configureWithAPIKey
+import cocoapods.RevenueCat.enableAdServicesAttributionTokenCollection
 import com.mmk.kmprevenuecat.purchases.data.CustomerInfo
 import com.mmk.kmprevenuecat.purchases.data.LogInResult
 import kotlinx.cinterop.ExperimentalForeignApi
@@ -72,4 +73,13 @@ internal class PurchasesImpl : Purchases {
     override fun setFirebaseAppInstanceID(firebaseAppInstanceID: String){
         RCPurchases.sharedPurchases().setFirebaseAppInstanceID(firebaseAppInstanceID)
     }
+
+    override fun collectDeviceIdentifiers() {
+        RCPurchases.sharedPurchases().collectDeviceIdentifiers()
+    }
+
+    override fun enableAdServicesAttributionTokenCollection() {
+        RCPurchases.sharedPurchases().attribution().enableAdServicesAttributionTokenCollection()
+    }
+
 }
