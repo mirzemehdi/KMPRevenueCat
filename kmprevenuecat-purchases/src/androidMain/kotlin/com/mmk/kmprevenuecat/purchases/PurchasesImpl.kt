@@ -78,4 +78,9 @@ internal class PurchasesImpl(private val context: Context) : Purchases {
         RevenueCatPurchases.sharedInstance.setFirebaseAppInstanceID(firebaseAppInstanceID)
     }
 
+    override fun collectDeviceIdentifiers() {
+        RevenueCatPurchases.sharedInstance.collectDeviceIdentifiers()
+    }
+
+    override fun enableAdServicesAttributionTokenCollection() = Unit
 }

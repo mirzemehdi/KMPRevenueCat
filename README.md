@@ -55,6 +55,8 @@ fun logOut(onResult: (Result<CustomerInfo>) -> Unit)
 fun getCustomerInfo(fetchPolicy: CacheFetchPolicy = CacheFetchPolicy.default(),onResult: (Result<CustomerInfo>) -> Unit)
 fun setAttributes(attributes: Map<String,String?>)
 fun setFirebaseAppInstanceID(firebaseAppInstanceID: String)
+fun collectDeviceIdentifiers()
+fun enableAdServicesAttributionTokenCollection()
 
 ```
 ### Purchases-UI
