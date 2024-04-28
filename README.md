@@ -20,7 +20,7 @@ Related Blog Post (if you want to integrate it yourself without this library): h
 - **iOS:** `minDeploymentTarget 15.0`  
 
 - **RevenueCat Android version:** `7.5.2`  
-- **RevenueCat iOS version:** `4.39.0`  
+- **RevenueCat iOS version:** `4.41.1`  
 
 ### Gradle Setup
 KMPRevenueCat is available on Maven Central. In your root project `build.gradle.kts` file (or `settings.gradle` file) add `mavenCentral()` to repositories.  

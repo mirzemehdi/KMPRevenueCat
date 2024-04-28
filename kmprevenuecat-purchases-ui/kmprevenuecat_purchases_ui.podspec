@@ -9,8 +9,8 @@ Pod::Spec.new do |spec|
     spec.vendored_frameworks      = 'build/cocoapods/framework/KMPRevenueCatPurchasesUI.framework'
     spec.libraries                = 'c++'
     spec.ios.deployment_target = '15.0'
-    spec.dependency 'RevenueCat', '4.39.0'
-    spec.dependency 'RevenueCatUI', '4.39.0'
+    spec.dependency 'RevenueCat', '4.41.1'
+    spec.dependency 'RevenueCatUI', '4.41.1'
                 
     if !Dir.exist?('build/cocoapods/framework/KMPRevenueCatPurchasesUI.framework') || Dir.empty?('build/cocoapods/framework/KMPRevenueCatPurchasesUI.framework')
         raise "

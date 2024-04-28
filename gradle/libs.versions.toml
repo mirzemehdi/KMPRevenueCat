@@ -20,8 +20,8 @@ koin = "3.5.4"
 kotlinx-binary-validator = "0.13.2"
 dokka = "1.9.20"
 koinCompose = "1.1.0"
-revenueCatAndroid="7.5.2"
-revenueCatIos="4.39.0"
+revenueCatAndroid="7.9.0"
+revenueCatIos="4.41.1"
 
 
 
