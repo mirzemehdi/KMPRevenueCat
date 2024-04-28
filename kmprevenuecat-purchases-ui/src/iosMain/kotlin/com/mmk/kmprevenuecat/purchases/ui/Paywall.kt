@@ -18,7 +18,8 @@ public actual fun Paywall(
     RCPaywallViewController(
         offering = null,
         displayCloseButton = shouldDisplayDismissButton,
-        dismissRequestedHandler = null
+        dismissRequestedHandler = null,
+        shouldBlockTouchEvents = false
     ).apply {
         updateWithDisplayCloseButton(shouldDisplayDismissButton)
         setDelegate(listener?.asRCPaywallViewControllerDelegate(onDismiss))

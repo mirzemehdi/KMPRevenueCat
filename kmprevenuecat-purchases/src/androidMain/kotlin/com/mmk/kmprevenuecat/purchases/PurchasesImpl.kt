@@ -5,7 +5,10 @@ import com.mmk.kmprevenuecat.purchases.data.CustomerInfo
 import com.mmk.kmprevenuecat.purchases.data.LogInResult
 import com.revenuecat.purchases.PurchasesConfiguration
 import com.revenuecat.purchases.PurchasesError
+import com.revenuecat.purchases.awaitSyncPurchases
 import com.revenuecat.purchases.interfaces.ReceiveCustomerInfoCallback
+import com.revenuecat.purchases.interfaces.SyncPurchasesCallback
+import com.revenuecat.purchases.syncPurchasesWith
 import com.revenuecat.purchases.CustomerInfo as RevenueCatCustomerInfo
 import com.revenuecat.purchases.Purchases as RevenueCatPurchases
 import com.revenuecat.purchases.interfaces.LogInCallback as RevenueCatLoginCallback
@@ -83,4 +86,16 @@ internal class PurchasesImpl(private val context: Context) : Purchases {
     }
 
     override fun enableAdServicesAttributionTokenCollection() = Unit
+    @OptIn(KMPRevenueCatInternalApi::class)
+    override fun syncPurchases(onResult: (Result<CustomerInfo>) -> Unit) {
+        RevenueCatPurchases.sharedInstance.syncPurchases(object:SyncPurchasesCallback{
+            override fun onError(error: PurchasesError) {
+                onResult(Result.failure(Exception(error.message)))
+            }
+
+            override fun onSuccess(customerInfo: com.revenuecat.purchases.CustomerInfo) {
+                onResult(Result.success(customerInfo.asCustomerInfo()))
+            }
+        })
+    }
 }

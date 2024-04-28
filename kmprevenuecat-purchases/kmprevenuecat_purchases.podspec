@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
     spec.name                     = 'kmprevenuecat_purchases'
-    spec.version                  = '0.2.0'
+    spec.version                  = '0.3.0'
     spec.homepage                 = ''
     spec.source                   = { :http=> ''}
     spec.authors                  = ''
@@ -9,7 +9,7 @@ Pod::Spec.new do |spec|
     spec.vendored_frameworks      = 'build/cocoapods/framework/KMPRevenueCatPurchases.framework'
     spec.libraries                = 'c++'
     spec.ios.deployment_target = '15.0'
-    spec.dependency 'RevenueCat', '4.39.0'
+    spec.dependency 'RevenueCat', '4.41.1'
                 
     if !Dir.exist?('build/cocoapods/framework/KMPRevenueCatPurchases.framework') || Dir.empty?('build/cocoapods/framework/KMPRevenueCatPurchases.framework')
         raise "

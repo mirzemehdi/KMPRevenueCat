@@ -37,5 +37,5 @@ public interface Purchases {
     public fun setFirebaseAppInstanceID(firebaseAppInstanceID: String)
     public fun collectDeviceIdentifiers()
     public fun enableAdServicesAttributionTokenCollection()
-
+    public fun syncPurchases(onResult: (Result<CustomerInfo>) -> Unit)
 }
