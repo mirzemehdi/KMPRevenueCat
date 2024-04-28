@@ -1,11 +1,13 @@
 package com.mmk.kmprevenuecat.purchases
 
+import cocoapods.RevenueCat.RCCustomerInfo
 import cocoapods.RevenueCat.RCPurchases
 import cocoapods.RevenueCat.configureWithAPIKey
 import cocoapods.RevenueCat.enableAdServicesAttributionTokenCollection
 import com.mmk.kmprevenuecat.purchases.data.CustomerInfo
 import com.mmk.kmprevenuecat.purchases.data.LogInResult
 import kotlinx.cinterop.ExperimentalForeignApi
+import platform.Foundation.NSError
 
 
 @OptIn(ExperimentalForeignApi::class)
@@ -37,15 +39,9 @@ internal class PurchasesImpl : Purchases {
             })
     }
 
-    @OptIn(KMPRevenueCatInternalApi::class)
+
     override fun logOut(onResult: (Result<CustomerInfo>) -> Unit) {
-        RCPurchases.sharedPurchases().logOutWithCompletion { rcCustomerInfo, nsError ->
-            if (rcCustomerInfo != null) onResult(
-                Result.success(rcCustomerInfo.asCustomerInfo())
-            )
-            else
-                onResult(Result.failure(Exception(nsError?.localizedFailureReason)))
-        }
+        RCPurchases.sharedPurchases().logOutWithCompletion(onCompletionHandler(onResult))
     }
 
     override fun getCustomerInfo(
@@ -54,23 +50,18 @@ internal class PurchasesImpl : Purchases {
     ) {
         RCPurchases.sharedPurchases().getCustomerInfoWithFetchPolicy(
             fetchPolicy = fetchPolicy.asRevenueCatCacheFetchPolicy(),
-            completion = { rcCustomerInfo, nsError ->
-                if (rcCustomerInfo != null) onResult(
-                    Result.success(rcCustomerInfo.asCustomerInfo())
-                )
-                else
-                    onResult(Result.failure(Exception(nsError?.localizedFailureReason)))
-            })
+            completion = onCompletionHandler(onResult)
+        )
     }
 
-    override fun setAttributes(attributes: Map<String,String?>){
+    override fun setAttributes(attributes: Map<String, String?>) {
         val map = attributes.map { (key, value) ->
             key as Any? to value as Any?
         }.toMap()
         RCPurchases.sharedPurchases().setAttributes(map)
     }
 
-    override fun setFirebaseAppInstanceID(firebaseAppInstanceID: String){
+    override fun setFirebaseAppInstanceID(firebaseAppInstanceID: String) {
         RCPurchases.sharedPurchases().setFirebaseAppInstanceID(firebaseAppInstanceID)
     }
 
@@ -80,6 +71,19 @@ internal class PurchasesImpl : Purchases {
 
     override fun enableAdServicesAttributionTokenCollection() {
         RCPurchases.sharedPurchases().attribution().enableAdServicesAttributionTokenCollection()
+    }
+
+    override fun syncPurchases(onResult: (Result<CustomerInfo>) -> Unit) {
+        RCPurchases.sharedPurchases()
+            .syncPurchasesWithCompletion(completion = onCompletionHandler(onResult))
+    }
+
+    @OptIn(KMPRevenueCatInternalApi::class)
+    private fun onCompletionHandler(onResult: (Result<CustomerInfo>) -> Unit): ((RCCustomerInfo?, NSError?) -> Unit) {
+        return { rcCustomerInfo, nsError ->
+            if (rcCustomerInfo != null) onResult(Result.success(rcCustomerInfo.asCustomerInfo()))
+            else onResult(Result.failure(Exception(nsError?.localizedFailureReason)))
+        }
     }
 
 }

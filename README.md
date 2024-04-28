@@ -57,6 +57,7 @@ fun setAttributes(attributes: Map<String,String?>)
 fun setFirebaseAppInstanceID(firebaseAppInstanceID: String)
 fun collectDeviceIdentifiers()
 fun enableAdServicesAttributionTokenCollection()
+fun syncPurchases(onResult: (Result<CustomerInfo>) -> Unit)
 
 ```
 ### Purchases-UI

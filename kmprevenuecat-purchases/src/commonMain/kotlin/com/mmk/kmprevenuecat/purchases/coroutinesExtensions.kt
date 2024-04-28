@@ -23,3 +23,18 @@ public suspend fun Purchases.awaitCustomerInfo(fetchPolicy: CacheFetchPolicy=Cac
         )
     }
 }
+
+/**
+ * @throws [PurchasesException]  if there's an error retrieving the customer info.
+ *
+ */
+public suspend fun Purchases.awaitSyncPurchases(): CustomerInfo {
+    return suspendCoroutine { continuation ->
+        syncPurchases(
+            onResult = {result ->
+                if (result.isSuccess && result.getOrNull() != null) continuation.resume(result.getOrNull()!!)
+                else continuation.resumeWithException(PurchasesException(result.exceptionOrNull()?.message))
+            },
+        )
+    }
+}
