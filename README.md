@@ -19,7 +19,7 @@ Related Blog Post (if you want to integrate it yourself without this library): h
 - **Android:** `minSdkVersion 24`
 - **iOS:** `minDeploymentTarget 15.0`  
 
-- **RevenueCat Android version:** `7.5.2`  
+- **RevenueCat Android version:** `7.9.0`  
 - **RevenueCat iOS version:** `4.41.1`  
 
 ### Gradle Setup
