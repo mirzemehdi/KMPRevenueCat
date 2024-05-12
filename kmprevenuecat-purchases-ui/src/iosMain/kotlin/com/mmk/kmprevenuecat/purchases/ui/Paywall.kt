@@ -21,12 +21,11 @@ public actual fun Paywall(
         dismissRequestedHandler = null,
         shouldBlockTouchEvents = false
     ).apply {
-        updateWithDisplayCloseButton(shouldDisplayDismissButton)
         setDelegate(listener?.asRCPaywallViewControllerDelegate(onDismiss))
     }.also {
         if (it.isBeingPresented().not())
             rootViewController?.presentViewController(it, true, completion = {
-                if (it.isBeingPresented().not()) onDismiss()
+                println("Paywall PresentViewController completion is called")
             })
     }
 }
