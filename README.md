@@ -1,6 +1,6 @@
 # KMPRevenueCat - Kotlin Multiplatform RevenueCat Library
 [![Build](https://github.com/mirzemehdi/KMPRevenueCat/actions/workflows/build_and_publish.yml/badge.svg)](https://github.com/mirzemehdi/KMPRevenueCat/actions/workflows/build_and_publish.yml)
-[![Kotlin](https://img.shields.io/badge/Kotlin-1.9.21-blue.svg?style=flat&logo=kotlin)](https://kotlinlang.org)
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.0.0-blue.svg?style=flat&logo=kotlin)](https://kotlinlang.org)
 [![Maven Central](https://img.shields.io/maven-central/v/io.github.mirzemehdi/kmprevenuecat-purchases?color=blue)](https://search.maven.org/search?q=g:io.github.mirzemehdi+kmprevenuecat)
 
 ![badge-android](http://img.shields.io/badge/platform-android-6EDB8D.svg?style=flat)
@@ -19,8 +19,8 @@ Related Blog Post (if you want to integrate it yourself without this library): h
 - **Android:** `minSdkVersion 24`
 - **iOS:** `minDeploymentTarget 15.0`  
 
-- **RevenueCat Android version:** `7.9.0`  
-- **RevenueCat iOS version:** `4.41.1`  
+- **RevenueCat Android version:** `7.11.0`  
+- **RevenueCat iOS version:** `4.43.0`  
 
 ### Gradle Setup
 KMPRevenueCat is available on Maven Central. In your root project `build.gradle.kts` file (or `settings.gradle` file) add `mavenCentral()` to repositories.  

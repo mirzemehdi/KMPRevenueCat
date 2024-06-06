@@ -8,8 +8,8 @@ Pod::Spec.new do |spec|
     spec.summary                  = ''
     spec.vendored_frameworks      = 'build/cocoapods/framework/KMPRevenueCatPurchases.framework'
     spec.libraries                = 'c++'
-    spec.ios.deployment_target = '15.0'
-    spec.dependency 'RevenueCat', '4.41.1'
+    spec.ios.deployment_target    = '15.0'
+    spec.dependency 'RevenueCat', '4.43.0'
                 
     if !Dir.exist?('build/cocoapods/framework/KMPRevenueCatPurchases.framework') || Dir.empty?('build/cocoapods/framework/KMPRevenueCatPurchases.framework')
         raise "
@@ -21,6 +21,10 @@ Pod::Spec.new do |spec|
 
         Alternatively, proper pod installation is performed during Gradle sync in the IDE (if Podfile location is set)"
     end
+                
+    spec.xcconfig = {
+        'ENABLE_USER_SCRIPT_SANDBOXING' => 'NO',
+    }
                 
     spec.pod_target_xcconfig = {
         'KOTLIN_PROJECT_PATH' => ':kmprevenuecat-purchases',
