@@ -6,6 +6,16 @@
 ![badge-android](http://img.shields.io/badge/platform-android-6EDB8D.svg?style=flat)
 ![badge-ios](http://img.shields.io/badge/platform-ios-CDCDCD.svg?style=flat)
 
+## ⚠️ Repository Archived
+
+**This repository is archived and no longer maintained.**
+
+This project is officially supported by [RevenueCat](https://github.com/RevenueCat/purchases-kmp). Please refer to the official repository for the latest updates, issues, and contributions.
+
+- **No new issues or pull requests will be accepted here.**
+- **For any questions or contributions, please use the official repository.**
+
+##
 
 KMPRevenueCat is an _**unofficial**_ Kotlin Multiplatform library designed as a wrapper for [RevenueCat](https://www.revenuecat.com/). It provides a unified API for managing subscription and in-app purchases across both iOS and Android platforms. You can see how this library is used in [FindTravelNow](https://github.com/mirzemehdi/FindTravelNow-KMM/) production Compose + KMP project.
 For the documentation, please refer to the official [RevenueCat Documentation](https://www.revenuecat.com/docs/getting-started/quickstart), Kotlin section. The library is designed in the same way as it is shown in the official documentation.
@@ -68,11 +78,6 @@ fun syncPurchases(onResult: (Result<CustomerInfo>) -> Unit)
 @Composable
 fun Paywall(shouldDisplayDismissButton: Boolean = true,onDismiss: () -> Unit,listener: PaywallListener?)
 ```
-
-
-## Contributing
-
-Contributions are welcome! When covering new class/functions, please, follow RevenueCat's Kotlin style, maintaining the same naming conventions for functions and classes with identical parameters. Provide clear commits and open issues for problems or suggestions on the [Issues](https://github.com/mirzemehdi/KMPRevenueCat/issues) page. Your help makes this project better – thanks!
 
 
 
